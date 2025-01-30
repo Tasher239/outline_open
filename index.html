@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Outline</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const access_url = urlParams.get("access_url");
+            if (access_url) {
+                window.location.href = `outline://connect/${access_url}`;
+            } else {
+                document.body.innerHTML = "<h2>Ошибка: отсутствует ключ</h2>";
+            }
+        };
+    </script>
+</head>
+<body>
+    <h2>Перенаправление...</h2>
+</body>
+</html>
