@@ -9,7 +9,13 @@
             const urlParams = new URLSearchParams(window.location.search);
             const access_url = urlParams.get("access_url");
             if (access_url) {
+                // Попытка открыть приложение Outline
                 window.location.href = `outline://connect/${access_url}`;
+
+                // Через 2 секунды проверяем, если не открылось — выводим сообщение
+                setTimeout(function() {
+                    document.body.innerHTML = "<h2>Похоже, приложение не открылось. Установите Outline, чтобы подключиться.</h2>";
+                }, 2000); // Увеличена задержка для того, чтобы браузер успел обработать схему URL
             } else {
                 document.body.innerHTML = "<h2>Ошибка: отсутствует ключ</h2>";
             }
